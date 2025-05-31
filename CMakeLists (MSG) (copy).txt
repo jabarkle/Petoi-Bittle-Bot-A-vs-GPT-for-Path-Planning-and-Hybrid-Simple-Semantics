@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.8)
+project(bittle_msgs)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# Find necessary packages
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)  #Added for PoseStamped in BittlePath.msg
+
+# Generate message and service interfaces
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Detection.msg"
+  "msg/Command.msg"
+  "msg/CommandList.msg"
+  "msg/State.msg"
+  "msg/SerialResponse.msg"
+  "msg/AprilTag.msg"
+  "msg/Yolo.msg"
+  "msg/Point.msg"
+  "msg/BittlePath.msg"       #New message for planned paths
+  "msg/BittlePathJSON.msg"   #New message for JSON-based paths (LLM integration)
+  "msg/BittlePathGPTJSON.msg"
+  "srv/SerialCommand.srv"
+  "srv/CapturePhoto.srv"
+  "srv/ExecuteCommand.srv"
+  "action/MoveToGrid.action"
+  DEPENDENCIES sensor_msgs geometry_msgs  #Added geometry_msgs for PoseStamped[]
+)
+
+# If testing is enabled, configure linting and tests
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()
+
