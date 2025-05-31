@@ -1,9 +1,4 @@
 # Petoi-Bittle-Bot-A-vs-GPT-for-Path-Planning-and-Hybrid-Simple-Semantics
-This repository consists of the code to run a Petoi Bittle bot through evaluations to compare path planning of A* vs GPT. In addition, you can test a hybrid environment where A* plans the path and GPT chooses accordingly (with semantics involved to test GPT's choice selection). 
-
-
-
-
 
 Semantic Intelligence: GPT-4 + A* Path Planning for Low-Cost Robotics
 This repository implements a hybrid navigation system that combines GPT-4's semantic reasoning with classical A* path planning on a low-cost Petoi Bittle quadruped robot. The system enables context-aware navigation through natural language instructions without hardcoded finite state machines.
