@@ -194,35 +194,38 @@ All devices communicate using the same `ROS_DOMAIN_ID` over Wi-Fi. The overhead 
        ros2 run rqt_image_view rqt_image_view  # view camera  
        ros2 topic echo /bittlebot/path_json    # check path JSON  
 
-## File Structure
+## File Structure  
+```
 bittle_ros2/
-├── apriltag_node.py # Robot localization via AprilTag
-├── bittle_command_executor.py # Motor control (runs on Bittle Pi)
-├── LLM_reasoning_node.py # GPT-4 integration and decision making
-├── occupancy_grid_publisher.py # Converts detections to occupancy grid
-├── path_planner.py # A* pathfinding with multiple candidates
-├── webvid_publisher.py # MJPEG stream subscriber
-├── yolo_node.py # Object detection (obstacles/goals)
+├── apriltag_node.py             # Robot localization via AprilTag
+├── bittle_command_executor.py   # Motor control (runs on Bittle Pi)
+├── LLM_reasoning_node.py        # GPT-4 integration and decision making
+├── occupancy_grid_publisher.py  # Converts detections to occupancy grid
+├── path_planner.py              # A* pathfinding with multiple candidates
+├── webvid_publisher.py          # MJPEG stream subscriber
+├── yolo_node.py                 # Object detection (obstacles/goals)
 └── utils/
-└── best_v2.pt # Custom YOLO model weights
+    └── best_v2.pt               # Custom YOLO model weights
+```
 
-
-## Citation
+## Citation  
+```bibtex
 @article{barkley2025semantic,
-title = {Semantic Intelligence: Integrating GPT-4 with A* Planning in Low-Cost Robotics},
-author = {Barkley, Jesse and George, Abraham and Farimani, Amir Barati},
-journal= {arXiv preprint arXiv:2505.01931},
-year = {2025}
+  title = {Semantic Intelligence: Integrating GPT-4 with A* Planning in Low-Cost Robotics},
+  author = {Barkley, Jesse and George, Abraham and Farimani, Amir Barati},
+  journal = {arXiv preprint arXiv:2505.01931},
+  year = {2025}
 }
+```
 
-
-## Contributing
+## Contributing  
 We welcome contributions! Please submit issues, fork the repository, and create pull requests.
 
-## License
+## License  
 This project is licensed under the **MIT License** — see the `LICENSE` file for details.
 
-## Contact
+## Contact  
 - Jesse Barkley — <jabarkle@andrew.cmu.edu>  
-Carnegie Mellon University, Department of Mechanical Engineering
+  Carnegie Mellon University, Department of Mechanical Engineering
+
 
