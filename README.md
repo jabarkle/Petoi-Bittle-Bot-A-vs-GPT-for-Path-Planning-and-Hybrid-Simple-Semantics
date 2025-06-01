@@ -22,15 +22,13 @@ This repository implements a hybrid navigation system that combines GPT-4’s se
 Traditional robot navigation relies on hard-coded state machines and purely geometric planners, limiting adaptability to semantic instructions. This research demonstrates how GPT-4 can interpret high-level commands (e.g., “avoid toxic spills”, “find charging station”) and dynamically guide classical A* pathfinding.
 
 ### Key Features
-- **Semantic Understanding** — Interprets contextual navigation instructions  
-- **Dynamic Safety Buffering** — Adjusts obstacle clearance based on environmental conditions  
-- **Sequential Task Reasoning** — Handles multi-stage missions (collect resource → navigate to goal)  
+- **Semantic Understanding** — Interprets contextual navigation instructions   
 - **Low-Cost Implementation** — Works on affordable hardware (~ $300 robot + webcam)  
 - **No Fine-Tuning Required** — Uses GPT-4 API directly with prompt engineering  
 
 ### Performance Highlights
-- 96 – 100 % success rate on semantic navigation tasks  
-- 100 % success on sequential multi-stage missions  
+- A* outperforms GPT in traditional path planning
+- 96 – 100 % success rate on semantic navigation tasks using hybrid technique of GPT for reasoning and A* for path planning   
 - Enables behaviors impossible with classical planners alone  
 
 ## System Architecture
@@ -60,11 +58,11 @@ All devices communicate using the same `ROS_DOMAIN_ID` over Wi-Fi. The overhead 
 - **Petoi Bittle Robot (~ $300)**  
   - Petoi Bittle quadruped kit  
   - Raspberry Pi Zero 2 W (onboard)  
-  - Micro SD card (32 GB +)  
+  - Micro SD card  
 - **Overhead Camera Setup (~ $50)**  
   - USB webcam (resolution ≥ 640 × 480)  
   - Raspberry Pi Zero 2 W  
-  - Micro SD card (16 GB +)  
+  - Micro SD card  
   - Camera mount / tripod  
 - **AprilTag**  
   - Printed AprilTag marker (ID = 1) attached to Bittle  
@@ -178,13 +176,12 @@ All devices communicate using the same `ROS_DOMAIN_ID` over Wi-Fi. The overhead 
 **Key Findings**  
 - Classical A* is superior for pure geometric navigation.  
 - GPT-4 hybrid enables semantic behaviors impossible with A* alone.  
-- 96.7 % average compliance with semantic instructions.  
-- Zero failures on complex sequential reasoning tasks.  
+- 96.7 % average compliance with semantic instructions.    
 
 ## Troubleshooting
 ### Common Issues
 - **Robot not responding** — verify `ROS_DOMAIN_ID`, network, AprilTag visibility.  
-- **GPT-4 API errors** — check key, credits, connectivity, `/home/jesse/Desktop/openai_responses.json`.  
+- **GPT-4 API errors** — check key, credits, connectivity.  
 - **Path planning failures** — confirm `/map`, `/yolo/obstacles`, `/yolo/goals` topics.  
 
 ### Debug Commands
