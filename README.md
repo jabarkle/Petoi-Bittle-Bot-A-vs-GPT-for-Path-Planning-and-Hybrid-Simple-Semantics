@@ -17,7 +17,6 @@ This repository implements a hybrid navigation system that combines GPT-4’s se
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [Related Work](#related-work)
 
 ## Overview
 Traditional robot navigation relies on hard-coded state machines and purely geometric planners, limiting adaptability to semantic instructions. This research demonstrates how GPT-4 can interpret high-level commands (e.g., “avoid toxic spills”, “find charging station”) and dynamically guide classical A* pathfinding.
