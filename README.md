@@ -95,7 +95,7 @@ All devices communicate using the same `ROS_DOMAIN_ID` over Wi-Fi. The overhead 
 ## Installation & Setup
 1. **Clone Repository**  
        cd ~/ros2_ws/src
-       git clone https://github.com/yourusername/semantic-robot-navigation.git
+       git clone (This repo)
        cd ~/ros2_ws
        colcon build
        source install/setup.bash
