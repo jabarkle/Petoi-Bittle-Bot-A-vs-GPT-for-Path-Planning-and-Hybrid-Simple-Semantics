@@ -95,30 +95,45 @@ All devices communicate using the same `ROS_DOMAIN_ID` over Wi-Fi. The overhead 
 ## Installation & Setup
 1. **Clone Repository**  
        cd ~/ros2_ws/src
+   
        git clone (This repo)
+   
        cd ~/ros2_ws
+   
        colcon build
+   
        source install/setup.bash
 
-2. **Configure OpenAI API** — edit `LLM_reasoning_node.py` line 61:  
+3. **Configure OpenAI API** — edit `LLM_reasoning_node.py` line 61:
+    
        openai.api_key = "your-openai-api-key-here"
 
-3. **Setup Bittle Robot**  
+5. **Setup Bittle Robot**
+6. 
        ssh pi@<bittle-ip-address>
+       
        docker pull ros:humble
+   
        # copy bittle_command_executor.py to the Pi
+   
        export ROS_DOMAIN_ID=<your-domain-id>
+   
        # run container with executor script ...
 
-4. **Setup Overhead Camera**  
+8. **Setup Overhead Camera**
+9. 
        ssh pi@<camera-ip-address>
+       
        # install & configure MJPEG streaming script
 
-5. **Configure Network Communication**  
+10. **Configure Network Communication**
+11. 
        export ROS_DOMAIN_ID=42   # use any 0-101
+    
        ros2 topic list           # verify topics across devices
 
-6. **Update Camera Stream URL** — edit `webvid_publisher.py` line 13:  
+13. **Update Camera Stream URL** — edit `webvid_publisher.py` line 13:
+14. 
        self.stream_url = "http://<camera-pi-ip>:8000/stream.mjpg"
 
 ## Running Experiments
